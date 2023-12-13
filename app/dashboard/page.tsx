@@ -5,9 +5,14 @@ import { lusitana } from '@/app/ui/fonts';
 import { fetchRevenue, fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
 
 const Page = async () => {
-  const revenue = await fetchRevenue();
-  const latestInvoices = await fetchLatestInvoices();
-  const { totalPaidInvoices, totalPendingInvoices, numberOfInvoices, numberOfCustomers } = await fetchCardData();
+  const [revenue,latestInvoices,{ totalPaidInvoices, totalPendingInvoices, numberOfInvoices, numberOfCustomers }] = await Promise.all([
+    fetchRevenue(),
+    fetchLatestInvoices(),
+    fetchCardData(),
+  ])
+  // const revenue = await fetchRevenue();
+  // const latestInvoices = await fetchLatestInvoices();
+  // const { totalPaidInvoices, totalPendingInvoices, numberOfInvoices, numberOfCustomers } = await fetchCardData();
   return (
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
