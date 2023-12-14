@@ -16,9 +16,9 @@ export async function fetchRevenue() {
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
   // 模拟 慢请求
-  console.log('starting')
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-  console.log('ending')
+  // console.log('starting')
+  // await new Promise((resolve) => setTimeout(resolve, 3000))
+  // console.log('ending')
 
   noStore();
 
